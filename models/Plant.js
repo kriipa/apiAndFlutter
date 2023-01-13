@@ -1,39 +1,39 @@
 const mongoose = require('mongoose')
+const Catergory = require('./Category')
 
-const reviewSchema = mongoose.Schema({
+const reviewsSchema = mongoose.Schema({
     body: {
-        type: String,
-        required: true
+        type : String,
+        required : true
     },
     date: {
-        type: Date,
-        default: Date.now
+        type : String,
+        default : Date.now
     },
     reviewer: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-        required: true
+        type : mongoose.Schema.Types.ObjectId,
+        ref : 'User'
     }
 })
-// One-to-Few is most suitable for embedding!
-const plantSchema = mongoose.Schema({
-    author: {
-        type: String,
-        required: true
+
+const plantSchema =  mongoose.Schema({
+    name : {
+        type : String,
+        required : true
     },
-    title: {
-        type: String,
-        required: true
+    price : {
+        type : String,
+        required : true
     },
-    reviews: [reviewSchema],
-    category: {
+    description : {
+        type : String,
+        required : true
+    },
+    reviews: [reviewsSchema],
+    category : {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Category'
-    },
-    owner: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
+        ref : 'Category'
     }
-}, { timestamps: true })
+}, { timestamps : true })
 
 module.exports = mongoose.model('Plant', plantSchema)

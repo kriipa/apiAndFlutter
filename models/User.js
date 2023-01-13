@@ -1,25 +1,22 @@
+const { tr } = require('date-fns/locale')
 const mongoose = require('mongoose')
 
 const userSchema = mongoose.Schema({
-    username: {
-        type: String,
-        required: [true, 'Username is required'],
-        unique: [true, 'Username matches with existing users'],
-        minLength: 6
+    username : {
+        type : String,
+        required : true,
+        unique :[true, 'This is already registred'],
+        minLength : [5, 'Usernames should be longer than 5 characters.']
     },
-    password: {
-        type: String,
-        required: [true, 'Password is required']
+    password : {
+        type : String,
+        required : true,
     },
-    role: {
+    role : {
         type: String,
-        enum: ['user', 'admin', 'manager'],
-        default: 'user'
-    },
-    profile: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Profile'
+        enum : ['User', 'Admin'],
+        default : 'User'
     }
-}, { timestamps: true })
+}, {timestamps : true})
 
 module.exports = mongoose.model('User', userSchema)

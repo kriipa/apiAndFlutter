@@ -3,9 +3,10 @@ const express = require('express')
 const path = require('path')
 const mongoose = require('mongoose')
 const logger = require('./logger')
-// const booksRouter = require('./routes/books-routes')
-// const categoryRouter = require('./routes/category-routes')
+const plantsRouter = require('./routes/plants-routes')
+const categoryRouter = require('./routes/category-routes')
 const userRouter = require('./routes/users-routes')
+const profileRouter = require('./routes/profile-routes')
 const auth = require('./middelware/auth')
 
 const app = express()
@@ -39,8 +40,9 @@ app.get('^/$|/index(.html)?', (req, res) => {
 
 app.use('/users', userRouter)
 app.use(auth.verifyUser)
-// app.use('/books', booksRouter)
-// app.use('/categories', categoryRouter)
+app.use('/plants', plantsRouter)
+app.use('/profile', profileRouter)
+app.use('/categories', categoryRouter)
 // Error handling middleware
 app.use((err, req, res, next) => {
     console.log(err.stack)

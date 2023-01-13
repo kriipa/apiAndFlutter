@@ -10,13 +10,13 @@ const getAllPlants = (req, res, next) => {
 const createPlant = (req, res, next) => {
     let plant = {
         name: req.body.name,
-       price: req.body.price,
-        owner: req.user.id,
+        price: req.body.price,
+        // owner: req.user.id,
         description: req.body.description
     }
     Plant.create(plant)
         .then((plant) => {
-            res.status(201).json(book)
+            res.status(201).json(plant)
         }).catch(next)
 }
 
@@ -48,14 +48,14 @@ const updatePlantById = (req, res, next) => {
             plant.save().then(plant => res.json(plant)).catch(next)
         }).catch(next)
 
-    // Book.findByIdAndUpdate(req.params.book_id, { $set: req.body }, { new: true })
-    //     .then((book) => {
-    //         res.json(book)
+    // Plant.findByIdAndUpdate(req.params.plant_id, { $set: req.body }, { new: true })
+    //     .then((plant) => {
+    //         res.json(plant)
     //     }).catch(next)
 }
 
 const deletePlantById = (req, res, next) => {
-    Book.findByIdAndDelete(req.params.plant_id)
+    Plant.findByIdAndDelete(req.params.plant_id)
         .then((plant) => {
             res.json(plant)
         }).catch(next)
