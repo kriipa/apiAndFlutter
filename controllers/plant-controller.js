@@ -28,7 +28,7 @@ const deleteAllPlants = (req, res, next) => {
 }
 
 const getPlantById = (req, res, next) => {
-    Plant.findById(req.params.plant_id)
+    Plant.findById(req.params.id)
         .populate('category')
         .then((plant) => {
             res.json(plant)
@@ -36,7 +36,7 @@ const getPlantById = (req, res, next) => {
 }
 
 const updatePlantById = (req, res, next) => {
-    Plant.findById(req.params.plant_id)
+    Plant.findById(req.params.id)
         .then(plant => {
             if (plant.owner != req.user.id) {
                 res.status(403)
@@ -55,7 +55,7 @@ const updatePlantById = (req, res, next) => {
 }
 
 const deletePlantById = (req, res, next) => {
-    Plant.findByIdAndDelete(req.params.plant_id)
+    Plant.findByIdAndDelete(req.params.id)
         .then((plant) => {
             res.json(plant)
         }).catch(next)
