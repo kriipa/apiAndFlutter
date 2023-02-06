@@ -1,15 +1,27 @@
 const mongoose = require('mongoose')
 
 const profileSchema = mongoose.Schema({
-    firstName : {
+    fname : {
         type : String,
         required : true
     },
-    lastName : {
+    lname : {
         type : String,
         required : true
+    },
+    email : {
+        type : String,
     },
     image : {
+        type : String,
+    },
+    gender : {
+        type : String,
+    },
+    phone : {
+        type : String,
+    },
+    address : {
         type : String,
     },
     user : {

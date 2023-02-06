@@ -16,7 +16,7 @@ const reviewsSchema = mongoose.Schema({
     }
 })
 
-const plantSchema =  mongoose.Schema({
+const furnitureSchema =  mongoose.Schema({
     name : {
         type : String,
         required : true
@@ -29,11 +29,27 @@ const plantSchema =  mongoose.Schema({
         type : String,
         required : true
     },
+    image: {
+        type: String,
+        // required: true
+    },
+    woodType: {
+        type: String,
+    },
+    
     reviews: [reviewsSchema],
     category : {
         type: mongoose.Schema.Types.ObjectId,
         ref : 'Category'
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now 
+    },
+    updatedAt: {
+        type: Date,
+        default: Date.now
     }
 }, { timestamps : true })
 
-module.exports = mongoose.model('Plant', plantSchema)
+module.exports = mongoose.model('Furniture', furnitureSchema)

@@ -1,61 +1,61 @@
-const Plant = require('../models/Plant')
+const Furniture = require('../models/Furniture')
 
 const getAllReviews = (req, res, next) => {
-    Plant.findById(req.params.id)
-    .then((plant) => {
-        res.json(plant.reviews)
+    Furniture.findById(req.params.id)
+    .then((furniture) => {
+        res.json(furniture.reviews)
     }).catch(next)
 }
 
 const createReview = (req, res, next) => {
-    Plant.findById(req.params.id)
-    .then((plant) => {
-        plant.reviews.push(req.body)
-        plant.save()
+    Furniture.findById(req.params.id)
+    .then((furniture) => {
+        furniture.reviews.push(req.body)
+        furniture.save()
             .then((p) => res.status(201).json(p.reviews))
     }).catch(next)
 }
 
 const deleteAllReviews = (req, res, next) => {
-    Plant.findById(req.params.id)
-        .then((plant) => {
-            plant.reviews = []
-            plant.save()
+    Furniture.findById(req.params.id)
+        .then((furniture) => {
+            furniture.reviews = []
+            furniture.save()
                 .then(p => res.json(p.reviews))
         }).catch(next)
 }
 
 const getReviewById = (req, res, next) => {
-    Plant.findById(req.params.id) 
-        .then((plant) => {
-            let review = plant.reviews
+    Furniture.findById(req.params.id) 
+        .then((furniture) => {
+            let review = furniture.reviews
                 .find((item) => item.id == req.params.review_id)
             res.json(review)
         }).catch(next)
 }
 
 const updateReviewById = (req, res, next) => {
-    Plant.findById(req.params.id)
-        .then(plant => {
-            let updatedReviews = plant.reviews.map((item) => {
+    Furniture.findById(req.params.id)
+        .then(furniture => {
+            let updatedReviews = furniture.reviews.map((item) => {
                 if(item.id == req.params.review_id){
                     item.body = req.body.body //one body from schema
                 }
                 return item
             })
-            plant.reviews = updatedReviews
-            plant.save().then(p => res.json(p.reviews))
+            furniture.reviews = updatedReviews
+            furniture.save().then(p => res.json(p.reviews))
         }).catch(next)
 }
 
 const deleteReviewById = (req, res, next) => {
-    Plant.findById(req.params.id)
-        .then(plant => {
-            let deletedReviews = plant.reviews.filter((item) => {
+    Furniture.findById(req.params.id)
+        .then(furniture => {
+            let deletedReviews = furniture.reviews.filter((item) => {
                 return item.id != req.params.review_id
             })
-            plant.reviews = deletedReviews
-            plant.save().then(p => res.json(p.reviews))
+            furniture.reviews = deletedReviews
+            furniture.save().then(p => res.json(p.reviews))
         }).catch(next)
 }
 

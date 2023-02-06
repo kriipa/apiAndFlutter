@@ -6,9 +6,9 @@ const categorySchema = mongoose.Schema({
         required: [true, 'Category name is required']
         
     },
-    plants: [{
+    furniture: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Plant'
+        ref: 'Furniture'
     }]
 })
 
