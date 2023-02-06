@@ -1,0 +1,134 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "1:3220131603500328327",
+      "lastPropertyId": "13:666551719819036647",
+      "name": "User",
+      "properties": [
+        {
+          "id": "3:4500841850339061647",
+          "name": "email",
+          "type": 9
+        },
+        {
+          "id": "4:7806209815940174691",
+          "name": "password",
+          "type": 9
+        },
+        {
+          "id": "7:8463463252905201194",
+          "name": "fname",
+          "type": 9
+        },
+        {
+          "id": "8:5029089379758548961",
+          "name": "lname",
+          "type": 9
+        },
+        {
+          "id": "9:4642881219840829021",
+          "name": "gender",
+          "type": 9
+        },
+        {
+          "id": "10:8039446133536964646",
+          "name": "image",
+          "type": 9
+        },
+        {
+          "id": "11:442989039513820823",
+          "name": "passwordConfirmation",
+          "type": 9
+        },
+        {
+          "id": "12:1274056288318731748",
+          "name": "userId",
+          "type": 9,
+          "flags": 2080,
+          "indexId": "5:7514247059924492745"
+        },
+        {
+          "id": "13:666551719819036647",
+          "name": "umId",
+          "type": 6,
+          "flags": 129
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "2:2803683658172505939",
+      "lastPropertyId": "8:8924061010379150814",
+      "name": "Profile",
+      "properties": [
+        {
+          "id": "1:3824660030460685200",
+          "name": "profileId",
+          "type": 6,
+          "flags": 129
+        },
+        {
+          "id": "2:1296691777743245319",
+          "name": "id",
+          "type": 9,
+          "flags": 2080,
+          "indexId": "3:1933029809593424139"
+        },
+        {
+          "id": "3:48273525833096137",
+          "name": "fname",
+          "type": 9
+        },
+        {
+          "id": "4:4268294024281315765",
+          "name": "lname",
+          "type": 9
+        },
+        {
+          "id": "5:9214213018929035333",
+          "name": "email",
+          "type": 9
+        },
+        {
+          "id": "6:4163170875648242687",
+          "name": "gender",
+          "type": 9
+        },
+        {
+          "id": "7:310859619158951498",
+          "name": "phone",
+          "type": 9
+        },
+        {
+          "id": "8:8924061010379150814",
+          "name": "address",
+          "type": 9
+        }
+      ],
+      "relations": []
+    }
+  ],
+  "lastEntityId": "2:2803683658172505939",
+  "lastIndexId": "5:7514247059924492745",
+  "lastRelationId": "0:0",
+  "lastSequenceId": "0:0",
+  "modelVersion": 5,
+  "modelVersionParserMinimum": 5,
+  "retiredEntityUids": [],
+  "retiredIndexUids": [
+    1922822936122369401,
+    9205721361088111936,
+    6381973814660702771
+  ],
+  "retiredPropertyUids": [
+    2122814731325089335,
+    8036276385069561813,
+    4549583795448134345,
+    2965627500970708195
+  ],
+  "retiredRelationUids": [],
+  "version": 1
+}
